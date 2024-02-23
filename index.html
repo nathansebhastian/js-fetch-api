@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Fetch API Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+    <a class="github-fork-ribbon" href="https://github.com/nathansebhastian/js-fetch-api" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
     <style>
       pre {
         background-color: #f4f4f4;
@@ -38,7 +40,7 @@
       function getData() {
         const resultBox = document.querySelector('#getResult');
         resultBox.textContent = 'Running GET request...';
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        fetch('https://jsonplaceholder.typicode.com/users/1')
           .then(response => response.json())
           .then(data => {
             resultBox.textContent = JSON.stringify(data, null, 2);
@@ -53,12 +55,15 @@
       function postData() {
         const resultBox = document.querySelector('#postResult');
         resultBox.textContent = 'Running POST request...';
-        fetch('https://jsonplaceholder.typicode.com/todos', {
+        fetch('https://jsonplaceholder.typicode.com/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ title: 'Learn JavaScript' }),
+          body: JSON.stringify({
+             name: 'Nathan Sebhastian',
+             email: 'nathan@mail.com' 
+          }),
         })
           .then(response => response.json())
           .then(data => {
@@ -73,13 +78,14 @@
       function putData() {
         const resultBox = document.querySelector('#putResult');
         resultBox.textContent = 'Running PUT request...';
-        fetch('https://jsonplaceholder.typicode.com/todos/1', {
+        fetch('https://jsonplaceholder.typicode.com/users/1', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            title: 'Learn JavaScript',
+            name: 'Nathan Sebhastian',
+            email: 'nathan@mail.com'
           }),
         })
           .then(response => response.json())
@@ -97,13 +103,14 @@
       function patchData() {
         const resultBox = document.querySelector('#patchResult');
         resultBox.textContent = 'Running PATCH request...';
-        fetch('https://jsonplaceholder.typicode.com/todos/1', {
+        fetch('https://jsonplaceholder.typicode.com/users/1', {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            title: 'Learn JavaScript',
+            name: 'Nathan Sebhastian',
+            username: 'nsebhastian'
           }),
         })
           .then(response => response.json())
@@ -121,7 +128,7 @@
       function deleteData() {
         const resultBox = document.querySelector('#deleteResult');
         resultBox.textContent = 'Running DELETE request...';
-        fetch('https://jsonplaceholder.typicode.com/todos/1', {
+        fetch('https://jsonplaceholder.typicode.com/users/1', {
           method: 'DELETE',
         })
           .then(response => response.json())
