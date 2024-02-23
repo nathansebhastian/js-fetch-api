@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Fetch API Example</title>
+    <style>
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="getButton">Run GET Request</button>
+    <pre id="getResult"></pre>
+
+    <button id="postButton">Run POST Request</button>
+    <pre id="postResult"></pre>
+
+    <button id="putButton">Run PUT Request</button>
+    <pre id="putResult"></pre>
+
+    <button id="patchButton">Run PATCH Request</button>
+    <pre id="patchResult"></pre>
+
+    <button id="deleteButton">Run DELETE Request</button>
+    <pre id="deleteResult"></pre>
+
+    <script>
+      // GET Request
+      document.querySelector('#getButton').addEventListener('click', getData);
+      function getData() {
+        const resultBox = document.querySelector('#getResult');
+        resultBox.textContent = 'Running GET request...';
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+          .then(response => response.json())
+          .then(data => {
+            resultBox.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            resultBox.textContent = 'Error fetching data: ' + error;
+          });
+      }
+
+      // POST Request
+      document.querySelector('#postButton').addEventListener('click', postData);
+      function postData() {
+        const resultBox = document.querySelector('#postResult');
+        resultBox.textContent = 'Running POST request...';
+        fetch('https://jsonplaceholder.typicode.com/todos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title: 'Learn JavaScript' }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            resultBox.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            resultBox.textContent = 'Error fetching data: ' + error;
+          });
+      }
+
+      document.querySelector('#putButton').addEventListener('click', putData);
+      function putData() {
+        const resultBox = document.querySelector('#putResult');
+        resultBox.textContent = 'Running PUT request...';
+        fetch('https://jsonplaceholder.typicode.com/todos/1', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            title: 'Learn JavaScript',
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            resultBox.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            resultBox.textContent = 'Error fetching data: ' + error;
+          });
+      }
+
+      document
+        .querySelector('#patchButton')
+        .addEventListener('click', patchData);
+      function patchData() {
+        const resultBox = document.querySelector('#patchResult');
+        resultBox.textContent = 'Running PATCH request...';
+        fetch('https://jsonplaceholder.typicode.com/todos/1', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            title: 'Learn JavaScript',
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            resultBox.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            resultBox.textContent = 'Error fetching data: ' + error;
+          });
+      }
+
+      document
+        .querySelector('#deleteButton')
+        .addEventListener('click', deleteData);
+      function deleteData() {
+        const resultBox = document.querySelector('#deleteResult');
+        resultBox.textContent = 'Running DELETE request...';
+        fetch('https://jsonplaceholder.typicode.com/todos/1', {
+          method: 'DELETE',
+        })
+          .then(response => response.json())
+          .then(data => {
+            resultBox.textContent = JSON.stringify(data, null, 2);
+          })
+          .catch(error => {
+            resultBox.textContent = 'Error fetching data: ' + error;
+          });
+      }
+    </script>
+  </body>
+</html>
