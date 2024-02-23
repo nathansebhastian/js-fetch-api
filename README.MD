@@ -8,7 +8,7 @@ For the full article, you can visit the following link:
 
 [freeCodeCamp - JavaScript Fetch API For Beginners](https://www.freecodecamp.org/news/javascript-fetch-api-for-beginners)
 
-If you want to take your JavaScript skills to the next level, you might want to check out my book _Beginning Modern JavaScript_:
+If you want to take your JavaScript skills to the next level, you might want to check out my book [_Beginning Modern JavaScript_](https://codewithnathan.com/beginning-modern-javascript):
 
 [![Beginning Modern JavaScript](beginning-js-cover.webp)](https://codewithnathan.com/beginning-modern-javascript)
 
